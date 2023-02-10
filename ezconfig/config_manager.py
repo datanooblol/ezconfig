@@ -1,5 +1,5 @@
 # modules for read and write configurations used in development stage
-import json # support
+import json
 from typing import Protocol, Dict, List, Optional, Union, Tuple, NewType, Any
 import os
 from pathlib import Path
