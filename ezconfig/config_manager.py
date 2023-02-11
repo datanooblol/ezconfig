@@ -49,7 +49,7 @@ def get_module_location(module) -> str:
     else:
         raise ValueError(f"input must be a module object. Not a {type(module)}")
 
-class ConfigManager:
+class EzConfig:
     """Use this class to manipulate <your config>.json.
     
     Examples
@@ -91,7 +91,7 @@ class ConfigManager:
         self.path = os.path.join(self.directory, self.filename)
         self.is_file_exist = os.path.exists(self.path)
     
-    def write_config_file(self, config_dict, replace=False) -> str:
+    def write_config_file(self, config_dict:dict, replace=False) -> str:
         """write a package configuration
         Parameters
         ----------
@@ -173,6 +173,12 @@ class ConfigManager:
             
     def update_config(self, key:str, value:Any, replace=False):
         """update the existing configuration's element
+        
+        Notes
+        -----
+        In the case you want to update the nested configuration, use insert method with the whole nested config instead.
+        
+        
         Parameters
         ----------
         key : str
